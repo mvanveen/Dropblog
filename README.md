@@ -1,5 +1,5 @@
-Dropblog: Dropbox Blogging for App Engine
-=========================================
+Dropblog: Dropbox Powered, App Engine Hosted
+============================================
 
 *(**note**: into ripped from [my blog](http://mvv.io/posts/1))*
 
