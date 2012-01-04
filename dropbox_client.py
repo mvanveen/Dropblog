@@ -37,10 +37,9 @@ def get_token_and_consumer():
 
 
 ## AUTHORIZE
-
+# (user goes to url)
 
 # ACCESS TOKEN
-
 def get_access_token():
   cred = get_token_and_consumer()
   resp, content = oauth.Client(*cred).request(access_token_url, "POST")
@@ -50,17 +49,23 @@ def get_access_token():
       access_token['oauth_token'],
       access_token['oauth_token_secret']
     )
-
   return oauth.Client(cred[0], token)
 
 
 def write_client():
-  fileObj = open('lol.pik', 'w')
+  fileObj = open('client.pik', 'w')
   fileObj.write(pickle.dumps(get_access_token()))
 
 
 def get_client():
-  fileObj = open('lol.pik', 'r')
+  fileObj = open('client.pik', 'r')
   return pickle.loads(fileObj.read())
 
+if __name__ == '__main__':
+  print 'Welcome to the dropblog configuration tool'
+  get_token_and_consumer()
+  print 'writing client.pik file...',
+  write_client()
+  print 'OK.'
+  print 'done'
 
