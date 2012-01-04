@@ -7,8 +7,9 @@ Dropblog is a tiny [Dropbox][dropbox] CMS I wrote while recovering from pneumoni
 It runs on top of [App Engine][appengine].  It's inspired by [Jekyll][jekyll], 
 but isn't statically generated.
 
-It reads [yaml]-compliant metadata, parses markdown posts, has a built-in 
-[JSON](http://json.org) API, and is generally pretty badass.
+It reads [YAML](http://yaml.org)-compliant metadata, parses markdown posts, 
+has a built-in [JSON](http://json.org) API, and is generally pretty badass.
+
 
 What's more, it's hosted entirely from your [Dropbox][dropbox] folder! 
 
@@ -38,13 +39,57 @@ Features
 - [JSON][json] API
 - Content is [memcached][memcached]
 
+Setup
+-----
+
+### Step One: Setup app key
+
+:warning: **This step is temporary and will be replaced!** 
+
+    $ python dropbox_client.py
+    Welcome to the dropblog configuration tool
+    Please go to https://www.dropbox.com/1/oauth/authorize?oauth_token=9te9aoa2b4r85kl
+    OK ?
+    done
+
+### Step Two: Configure App Engine
+
+First register a new app engine app instance.
+
+Next, Change the `application` field in `app.yaml` to your app identifier.
+
+   application: s~yourapphere
+
+**Note**: The `s~` implies a High Replication instance.
+
+### Step Three
+
+Deploy via appcfg
+
+    $ appcfg.py udpate .
+
+### Step Four: Configure Dropbox
+
+Relax!
+
+You're ready to start your dropbox blog.
+
+Read the following [guide](guide_goes_here) to get started.
+
+Notes
+-----
+
+`overwrite` query parameter will flush the cache.
+
 Links
 -----
 - [my blog](http://mvv.io) (powered by dropblog)
 
+[appengine]: https://appengine.google.com/
 [memcached]: http://memcached.org/
 [dropbox]: http://db.tt/iEMAoeTW
 [json]: http://json.org
+[jekyll]: http://jekyllrb.com/
 
 License
 -------
