@@ -62,7 +62,7 @@ Next, Change the `application` field in `app.yaml` to your app identifier.
 
 **Note**: The `s~` implies a High Replication instance.
 
-### Step Three
+### Step Three: Deploy!
 
 Deploy via appcfg
 
