@@ -108,7 +108,7 @@ def get_item(path, overwrite=False):
 
   if not fileObj or overwrite:
     logging.info('flushing cache for obj: %s' % path)
-    fileObj = get(''.join((path_url, path)))
+    fileObj = get(''.join((path_url, path))).decode('ascii', 'ignore')
 
     result = False
     while not result: 
