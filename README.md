@@ -58,7 +58,7 @@ First register a new app engine app instance.
 
 Next, Change the `application` field in `app.yaml` to your app identifier.
 
-   application: s~yourapphere
+    application: s~yourapphere
 
 **Note**: The `s~` implies a High Replication instance.
 
