@@ -1,4 +1,3 @@
-import datetime
 import simplejson as json
 import logging
 
@@ -20,38 +19,13 @@ from models import (
 )
 
 
-def render_item(item):
-  front_item = get_post_front_matter(item['path'])
-  return  '''
-    <b>%s</b><br />
-    <i>%s</i><br />
-    Author: %s <br />
-    <br />
-  ''' %(
-    front_item['title'],
-    str(datetime.datetime.fromtimestamp(front_item['time'])) ,
-    front_item['author'] + markdown.markdown(
-      split_file(get_post(item['path']))[1]
-    ))
-
-
-def render_front():
-  items = reversed(get_posts_time()[:10])
-  rendered = []
-
-  for item in items: 
-    rendered.append(render_item(item))
-
-  return "<hr style='border 1px solid black;margin:0;'/>".join(rendered)
-  
-
 @route('/')
 @route('/index')
 def get_root():
   overwrite = request.query.overwrite or False
   return ''.join((
     get_header(overwrite=overwrite),
-    render_front(),
+    get_index(overwrite=overwrite),
     get_footer(overwrite=overwrite)
   ))
 
