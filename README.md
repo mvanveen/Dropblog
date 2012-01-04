@@ -1,10 +1,10 @@
 Dropblog: Dropbox Blogging for App Engine
 =========================================
 
-(*note*: into ripped from [my blog](http://mvv.io/posts/1))
+*(**note**: into ripped from [my blog](http://mvv.io/posts/1))*
 
 Dropblog is a tiny [Dropbox][dropbox] CMS I wrote while recovering from pneumonia. 
-It runs on top of [App Engine][appengine].  It's inspired by [Jekyll][jekyll], 
+It runs on top of [App Engine][appengine], is inspired by [Jekyll][jekyll], 
 but isn't statically generated.
 
 It reads [YAML](http://yaml.org)-compliant metadata, parses markdown posts, 
