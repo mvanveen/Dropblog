@@ -23,7 +23,7 @@ path_fun = lambda x: x['path']
 
 
 def get_posts(sort_key=path_fun):
-  '''Returns posts as a sorted dictionary.
+  '''Returns posts as a sorted list.
 
       TODO: add caching
 
@@ -31,10 +31,11 @@ def get_posts(sort_key=path_fun):
   url = ''.join((metadata_url, 'posts'))
   logging.info('url is: %s' % url)
 
-  return sorted(
-    json.loads(get(url)).get('contents', {}),
-    key=sort_key
-  )
+  # Fuck conflicted copies. They fuck shit up.
+  posts = json.loads(get(url)).get('contents', {})
+  posts = filter(lambda x: 'conflicted copy' not in x.get('path'), posts)
+  
+  return sorted(posts, key=sort_key)
 
 
 def get_post_front_matter(file_str, overwrite=False):
@@ -59,10 +60,10 @@ def get_post_front_matter(file_str, overwrite=False):
       file_str,
       overwrite=overwrite
     ))
-
+  front_matter = yaml.load(file_str[0]) or {}
   return dict([
     (key.lower(), val) for key, val 
-      in yaml.load(file_str[0]).iteritems()
+      in front_matter.iteritems()
   ])
 
 
@@ -101,6 +102,9 @@ def get_post_no(no, **kw):
 def get_item(path, overwrite=False):
   assert isinstance(path, basestring), 'Expected path to be a string'
 
+  assert 'conflicted copy' not in path, \
+    'An attempt to fetch a conflicted copy of a file was made'
+
   prefix = 'file_'
   key = ''.join((prefix, path))
 
@@ -120,7 +124,6 @@ def get_item(path, overwrite=False):
 def split_file(file_str):
   result = re.split(r'\n\n', file_str)
   return (result[0], '\n\n'.join(result[1:]))
-
 
 def get_post(path, **kw):
   return get_item(path, **kw)
