@@ -42,7 +42,7 @@ Features
 Setup
 -----
 
-Please see [the wiki](mvanveen/docs/Setup.md) for more information.
+Please see [the wiki](Dropblog/wiki/Setup) for more information.
 
 Notes
 -----
