@@ -42,7 +42,7 @@ Features
 Setup
 -----
 
-Please see [the wiki](docs/Setup.md) for more information.
+Please see [the wiki](mvanveen/docs/Setup.md) for more information.
 
 Notes
 -----
