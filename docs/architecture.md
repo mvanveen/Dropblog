@@ -1,1 +1,0 @@
-Architecture details go here

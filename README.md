@@ -42,54 +42,22 @@ Features
 Setup
 -----
 
-### Step One: Setup app key
-
-:warning: **This step is temporary and will be replaced!** 
-
-    $ python dropbox_client.py
-    Welcome to the dropblog configuration tool
-    Please go to https://www.dropbox.com/1/oauth/authorize?oauth_token=9te9aoa2b4r85kl
-    OK ?
-    done
-
-### Step Two: Configure App Engine
-
-First register a new app engine app instance.
-
-Next, Change the `application` field in `app.yaml` to your app identifier.
-
-    application: s~yourapphere
-
-**Note**: The `s~` implies a High Replication instance.
-
-### Step Three: Deploy!
-
-Deploy via appcfg
-
-    $ appcfg.py udpate .
-
-### Step Four: Configure Dropbox
-
-Relax!
-
-You're ready to start your dropbox blog.
-
-Read the following [guide](guide_goes_here) to get started.
+Please see [the wiki](docs/Setup.md) for more information.
 
 Notes
 -----
-
 `overwrite` query parameter will flush the cache.
 
 Links
 -----
+
 - [my blog](http://mvv.io) (powered by dropblog)
 
 [appengine]: https://appengine.google.com/
 [memcached]: http://memcached.org/
-[dropbox]: http://db.tt/iEMAoeTW
-[json]: http://json.org
-[jekyll]: http://jekyllrb.com/
+[dropbox]:   http://db.tt/iEMAoeTW
+[json]:      http://json.org
+[jekyll]:    http://jekyllrb.com/
 
 License
 -------
