@@ -14,7 +14,7 @@ access_token_url  = 'https://api.dropbox.com/1/oauth/access_token'
 
 ### GET A REQUEST TOKEN ###
 
-consumer = oauth.Consumer(key="b4k7ni0mlnwplv0", secret="ui02su5h4i4ttlc")
+consumer = oauth.Consumer(key="YOURKEYHERE", secret="YOURSECRETHERE")
 
 client = oauth.Client(consumer)
 
